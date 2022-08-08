@@ -9,7 +9,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|svg)$/i,
-                use: "asset/resource",
+                type: "asset/resource",
             }
         ],
     },

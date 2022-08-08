@@ -1,30 +1,105 @@
-function homeComponent(){
+const homeComponent = (() => {
     const parentContainer = document.querySelector("#content");
-    const titleContainer = document.createElement("div");
-    titleContainer.classList.add("title-container");
 
-    const title = document.createElement("h1");
-    title.classList.add("main-title");
-    title.textContent = "Lorem Ipsum";
+    function generateTitleContainer() {
+        const titleContainer = document.createElement("div");
+        titleContainer.classList.add("title-container");
 
-    const subTitle = document.createElement("h2");
-    subTitle.classList.add("sub-title");
-    subTitle.textContent = "Contemporary Steak House"
+        const title = document.createElement("h1");
+        title.classList.add("main-title");
+        title.textContent = "Lorem Ipsum";
 
-    const mainContainer = document.createElement("div");
-    mainContainer.classList.add("main-container");
+        const subTitle = document.createElement("h2");
+        subTitle.classList.add("sub-title");
+        subTitle.textContent = "Contemporary Steak House"
 
-    parentContainer.appendChild(titleContainer);
-    titleContainer.appendChild(title);
-    titleContainer.appendChild(subTitle);
-    parentContainer.appendChild(mainContainer);
+        parentContainer.appendChild(titleContainer);
+        titleContainer.appendChild(title);
+        titleContainer.appendChild(subTitle);
+    }
 
-    const historyContainer = document.createElement("div");
-    historyContainer.classList.add("history-container");
-    historyContainer.textContent = "Eiusmod voluptate occaecat exercitation anim culpa. Laborum ad veniam cillum laborum magna officia deserunt esse sunt laborum cillum. Culpa voluptate pariatur deserunt magna excepteur adipisicing commodo. Quis ipsum velit quis enim proident et ut deserunt voluptate cupidatat sunt quis. Excepteur laborum consequat nulla ex dolor sunt est nisi mollit irure ex officia. Eiusmod labore pariatur magna minim est eiusmod eiusmod cillum cillum commodo elit.";
+    function generateNavContainer(reservationLogo, menuLogo, contactLogo) {
+        const navContainer = document.createElement("div");
+        navContainer.classList.add("nav-container");
+        parentContainer.appendChild(navContainer);
 
-    const knifeImg = document.createElement("img");
-    mainContainer.appendChild(historyContainer);
-}
+        //reservation
+        const reserveContainer = document.createElement("div");
+        reserveContainer.classList.add("reserve-container");
+        const reserveImg = document.createElement("img");
+        reserveImg.src = reservationLogo;
+        reserveImg.classList.add("reserve-img");
+        reserveContainer.appendChild(reserveImg);
+        navContainer.appendChild(reserveContainer);
+        //menu
+        const menuContainer = document.createElement("div");
+        menuContainer.classList.add("menu-container");
+        const menuImg = document.createElement("img");
+        menuImg.src = menuLogo;
+        menuImg.classList.add("menu-img");
+        menuContainer.appendChild(menuImg);
+        navContainer.appendChild(menuContainer);
+        //contact us
+        const contactContainer = document.createElement("div");
+        contactContainer.classList.add("contact-container");
+        const contactImg = document.createElement("img");
+        contactImg.classList.add("contact-img");
+        contactImg.src = contactLogo;
+        contactContainer.appendChild(contactImg);
+        navContainer.appendChild(contactContainer);
+    }
+
+    function generateMainContainer(firstText = "Put history story here.", secondText = "Put paragraphs of history manifestation here.", knifeImage){
+        const mainContainer = document.createElement("div");
+        mainContainer.classList.add("main-container");
+
+        const historyContainer = document.createElement("div");
+        historyContainer.classList.add("history-container");
+        historyContainer.textContent = firstText;
+
+        const knifeContainer = document.createElement("div");
+        knifeContainer.classList.add("knife-container");
+        const knifeImg = document.createElement("img");
+        knifeImg.src = knifeImage;
+        knifeImg.classList.add("knife-img");
+        knifeContainer.appendChild(knifeImg);
+
+        const manifestContainer = document.createElement("div");
+        manifestContainer.classList.add("manifest-container");
+        manifestContainer.textContent = secondText;
+
+        parentContainer.appendChild(mainContainer);
+        mainContainer.appendChild(historyContainer);
+        mainContainer.appendChild(knifeContainer);
+        mainContainer.appendChild(manifestContainer);
+    }
+
+    function generateReviewsContainer(){
+        const reviewsContainer = document.createElement("div");
+        reviewsContainer.classList.add("reviews-container");
+
+        parentContainer.appendChild(reviewsContainer);
+    }
+
+    function generateFootnote(){
+        const footContainer = document.createElement("div");
+        footContainer.classList.add("foot-container");
+
+        parentContainer.appendChild(footContainer);
+    }
+
+    function initialize(firstText, secondText, knifeImage, reservationLogo, menuLogo, contactLogo){
+        generateTitleContainer();
+        generateNavContainer(reservationLogo, menuLogo, contactLogo);
+        generateMainContainer(firstText, secondText, knifeImage);
+        generateReviewsContainer();
+        generateFootnote();
+    }
+
+    return { initialize };
+})()
+
+
+
 
 export { homeComponent };
