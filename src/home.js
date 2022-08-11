@@ -1,3 +1,6 @@
+import borderDesign from "./borderdesign.png";
+
+
 const homeComponent = (() => {
     const parentContainer = document.querySelector("#content");
 
@@ -25,12 +28,16 @@ const homeComponent = (() => {
 
         //reservation
         const reserveLink = document.createElement("a");
+        const reserveImg = document.createElement("img");
+        reserveLink.classList.add("nav-link");
+        reserveLink.setAttribute("href", "facebook.com");
+        reserveLink.appendChild(reserveImg);
+        reserveImg.classList.add("reserve-img");
+
         const reserveContainer = document.createElement("div");
         reserveContainer.classList.add("reserve-container");
-        const reserveImg = document.createElement("img");
         reserveImg.src = reservationLogo;
-        reserveImg.classList.add("reserve-img");
-        reserveContainer.appendChild(reserveImg);
+        reserveContainer.appendChild(reserveLink);
         navContainer.appendChild(reserveContainer);
 
         const reserveText = document.createElement("div");
@@ -39,14 +46,18 @@ const homeComponent = (() => {
         reserveContainer.appendChild(reserveText);
 
         //menu
+        const menuLink = document.createElement("a");
+        menuLink.classList.add("nav-link");
+        menuLink.setAttribute("href", "fb.com");
+        const menuImg = document.createElement("img");
+        menuLink.appendChild(menuImg);
+
         const menuContainer = document.createElement("div");
         menuContainer.classList.add("menu-container");
-        const menuImg = document.createElement("img");
         menuImg.src = menuLogo;
         menuImg.classList.add("menu-img");
-        menuContainer.appendChild(menuImg);
+        menuContainer.appendChild(menuLink);
         navContainer.appendChild(menuContainer);
-
 
         const menuText = document.createElement("div");
         menuText.textContent = "Menu";
@@ -54,12 +65,17 @@ const homeComponent = (() => {
         menuContainer.appendChild(menuText);
 
         //contact us
+        const contactLink = document.createElement("a");
+        contactLink.classList.add("nav-link");
+        contactLink.setAttribute("href", "fb.com");
+        const contactImg = document.createElement("img");
+        contactLink.appendChild(contactImg);
+
         const contactContainer = document.createElement("div");
         contactContainer.classList.add("contact-container");
-        const contactImg = document.createElement("img");
         contactImg.classList.add("contact-img");
         contactImg.src = contactLogo;
-        contactContainer.appendChild(contactImg);
+        contactContainer.appendChild(contactLink);
         navContainer.appendChild(contactContainer);
 
         const contactText = document.createElement("div");
@@ -118,7 +134,52 @@ const homeComponent = (() => {
     return { initialize };
 })()
 
+function addToDom(review){
+    const reviewsContainer = document.querySelector(".reviews-container");
+
+    const name = document.createElement("h3");
+    name.textContent = review.name;
+
+    const blockqoute = document.createElement("blockquote");
+    const comment = document.createElement("p");
+    blockqoute.appendChild(comment);
+    comment.textContent = review.comment;
+
+    const score = document.createElement("div");
+    score.textContent = review.score;
+
+    const singleContainer = document.createElement("div");
+    singleContainer.classList.add("single-review-container");
+    singleContainer.appendChild(name);
+    singleContainer.appendChild(blockqoute);
+    singleContainer.appendChild(score);
 
 
+    reviewsContainer.appendChild(singleContainer);
+}
 
-export { homeComponent };
+function addReview(name, comment, score) {
+    function Reviewer(name, comment, score) {
+
+        return {
+            name,
+            comment,
+            score
+        }
+    }
+
+    const reviewer = Reviewer(name, comment, score);
+    //update reviewContainer
+
+    addToDom(reviewer);
+}
+
+function addFooterText(paragraph){
+    const footerContainer = document.querySelector(".foot-container");
+
+    const text = document.createElement("p");
+    text.textContent = paragraph;
+    footerContainer.appendChild(text);
+}
+
+export { homeComponent, addReview, addFooterText };
