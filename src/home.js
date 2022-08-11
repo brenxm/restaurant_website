@@ -24,6 +24,7 @@ const homeComponent = (() => {
         parentContainer.appendChild(navContainer);
 
         //reservation
+        const reserveLink = document.createElement("a");
         const reserveContainer = document.createElement("div");
         reserveContainer.classList.add("reserve-container");
         const reserveImg = document.createElement("img");
