@@ -34,10 +34,6 @@ body{
     justify-content: space-between;
 }
 
-.nav-container > * {
-    flex: 1;
-}
-
 .main-container {
     display: flex;
     flex-direction: row;
@@ -76,3 +72,22 @@ body{
     height: 150px;
     margin: auto;
 }
+
+/* NAV Container*/
+.nav-container > * {
+    flex: 1;
+}
+
+.menu-img, .reserve-img, .contact-img {
+    margin: auto;
+    display: block;
+    height:70px;
+}
+
+.nav-text {
+    text-align: center;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+

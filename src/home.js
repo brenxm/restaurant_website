@@ -31,6 +31,12 @@ const homeComponent = (() => {
         reserveImg.classList.add("reserve-img");
         reserveContainer.appendChild(reserveImg);
         navContainer.appendChild(reserveContainer);
+
+        const reserveText = document.createElement("div");
+        reserveText.textContent = "Reservation";
+        reserveText.classList.add("nav-text");
+        reserveContainer.appendChild(reserveText);
+
         //menu
         const menuContainer = document.createElement("div");
         menuContainer.classList.add("menu-container");
@@ -39,6 +45,13 @@ const homeComponent = (() => {
         menuImg.classList.add("menu-img");
         menuContainer.appendChild(menuImg);
         navContainer.appendChild(menuContainer);
+
+
+        const menuText = document.createElement("div");
+        menuText.textContent = "Menu";
+        menuText.classList.add("nav-text");
+        menuContainer.appendChild(menuText);
+
         //contact us
         const contactContainer = document.createElement("div");
         contactContainer.classList.add("contact-container");
@@ -47,6 +60,11 @@ const homeComponent = (() => {
         contactImg.src = contactLogo;
         contactContainer.appendChild(contactImg);
         navContainer.appendChild(contactContainer);
+
+        const contactText = document.createElement("div");
+        contactText.textContent = "Contact us";
+        contactText.classList.add("nav-text");
+        contactContainer.appendChild(contactText);
     }
 
     function generateMainContainer(firstText = "Put history story here.", secondText = "Put paragraphs of history manifestation here.", knifeImage){
