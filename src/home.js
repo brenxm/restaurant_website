@@ -1,5 +1,7 @@
-import borderDesign from "./borderdesign.png";
-
+import startIcon from "./staricon.svg";
+import knifeImage from "./kitchenknife.png";
+import webText from "./webtext.json";
+import placeHolderImg from "./placeholder.png";
 
 const homeComponent = (() => {
     const parentContainer = document.querySelector("#content");
@@ -10,11 +12,11 @@ const homeComponent = (() => {
 
         const title = document.createElement("h1");
         title.classList.add("main-title");
-        title.textContent = "Lorem Ipsum";
+        title.textContent = "Yves Ibyang";
 
         const subTitle = document.createElement("h2");
         subTitle.classList.add("sub-title");
-        subTitle.textContent = "Contemporary Steak House"
+        subTitle.textContent = "Ilocano Steak House"
 
         parentContainer.appendChild(titleContainer);
         titleContainer.appendChild(title);
@@ -112,21 +114,57 @@ const homeComponent = (() => {
     function generateReviewsContainer(){
         const reviewsContainer = document.createElement("div");
         reviewsContainer.classList.add("reviews-container");
-
         parentContainer.appendChild(reviewsContainer);
+
+        //for each reviews in JSON file, we add it to our review container
+        webText.reviews.forEach(review => {
+            const name = document.createElement("h3");
+            name.textContent = review.name;
+
+            const blockqoute = document.createElement("blockquote");
+            const comment = document.createElement("p");
+            blockqoute.appendChild(comment);
+            comment.textContent = review.comment;
+            const scoreContainer = document.createElement("div");
+
+            scoreContainer.classList.add("score-container");
+            for(let i = 0; i < review.score; i++){
+                const icon = document.createElement("img");
+                icon.classList.add("star-icon");
+                icon.src = startIcon;
+                scoreContainer.appendChild(icon);
+            }
+
+            const singleReviewContainer = document.createElement("div");
+            singleReviewContainer.classList.add("single-review-container");
+            singleReviewContainer.appendChild(name);
+            singleReviewContainer.appendChild(blockqoute);
+            singleReviewContainer.appendChild(scoreContainer);
+
+            reviewsContainer.appendChild(singleReviewContainer);
+        })
     }
 
     function generateFootnote(){
         const footContainer = document.createElement("div");
         footContainer.classList.add("foot-container");
-
         parentContainer.appendChild(footContainer);
+
+        //for each notes in webtext.footernotes
+            //create one p element for each single value in footerNotes array,
+            //footContainer
+
+        webText.footerNotes.forEach(note => {
+            const text = document.createElement("p");
+            text.textContent = note;
+            footContainer.appendChild(text);
+        })
     }
 
-    function initialize(firstText, secondText, knifeImage, reservationLogo, menuLogo, contactLogo){
+    function initialize(){
         generateTitleContainer();
-        generateNavContainer(reservationLogo, menuLogo, contactLogo);
-        generateMainContainer(firstText, secondText, knifeImage);
+        generateNavContainer(placeHolderImg, placeHolderImg, placeHolderImg);
+        generateMainContainer(webText.restaurantHistory, webText.manifestation, knifeImage);
         generateReviewsContainer();
         generateFootnote();
     }
@@ -134,52 +172,4 @@ const homeComponent = (() => {
     return { initialize };
 })()
 
-function addToDom(review){
-    const reviewsContainer = document.querySelector(".reviews-container");
-
-    const name = document.createElement("h3");
-    name.textContent = review.name;
-
-    const blockqoute = document.createElement("blockquote");
-    const comment = document.createElement("p");
-    blockqoute.appendChild(comment);
-    comment.textContent = review.comment;
-
-    const score = document.createElement("div");
-    score.textContent = review.score;
-
-    const singleContainer = document.createElement("div");
-    singleContainer.classList.add("single-review-container");
-    singleContainer.appendChild(name);
-    singleContainer.appendChild(blockqoute);
-    singleContainer.appendChild(score);
-
-
-    reviewsContainer.appendChild(singleContainer);
-}
-
-function addReview(name, comment, score) {
-    function Reviewer(name, comment, score) {
-
-        return {
-            name,
-            comment,
-            score
-        }
-    }
-
-    const reviewer = Reviewer(name, comment, score);
-    //update reviewContainer
-
-    addToDom(reviewer);
-}
-
-function addFooterText(paragraph){
-    const footerContainer = document.querySelector(".foot-container");
-
-    const text = document.createElement("p");
-    text.textContent = paragraph;
-    footerContainer.appendChild(text);
-}
-
-export { homeComponent, addReview, addFooterText };
+export { homeComponent };

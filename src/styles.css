@@ -106,18 +106,23 @@ body{
 }
 
 .single-review-container {
-    background-color: darkgray;
+    background-color: rgb(75, 75, 75);
     height: 180px;
     width: 200px;
     padding: 10px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .single-review-container > * {
      margin: 0;
 }
 
-blockquote {
-    quotes: "\201C""\201D""\2018""\2019";
+.single-review-container p {
+    flex: 1;
+    height: 105px;
 }
 
 blockquote p {
@@ -127,6 +132,7 @@ blockquote p {
     letter-spacing: 0.5px;
     line-height: 17px;
     margin: 0;
+    color: rgb(213, 213, 213);
     
 }
 
@@ -140,6 +146,15 @@ blockquote p::after {
     content: close-quote;
     font-weight: 600;
     font-size: 23px;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.star-icon {
+    width: 20px;
 }
 
 /* FOOTER */
