@@ -1,90 +1,9 @@
 import startIcon from "./staricon.svg";
 import knifeImage from "./kitchenknife.png";
 import webText from "./webtext.json";
-import placeHolderImg from "./placeholder.png";
 
 const homeComponent = (() => {
-    const parentContainer = document.querySelector("#content");
-
-    function generateTitleContainer() {
-        const titleContainer = document.createElement("div");
-        titleContainer.classList.add("title-container");
-
-        const title = document.createElement("h1");
-        title.classList.add("main-title");
-        title.textContent = "Yves Ibyang";
-
-        const subTitle = document.createElement("h2");
-        subTitle.classList.add("sub-title");
-        subTitle.textContent = "Ilocano Steak House"
-
-        parentContainer.appendChild(titleContainer);
-        titleContainer.appendChild(title);
-        titleContainer.appendChild(subTitle);
-    }
-
-    function generateNavContainer(reservationLogo, menuLogo, contactLogo) {
-        const navContainer = document.createElement("div");
-        navContainer.classList.add("nav-container");
-        parentContainer.appendChild(navContainer);
-
-        //reservation
-        const reserveLink = document.createElement("a");
-        const reserveImg = document.createElement("img");
-        reserveLink.classList.add("nav-link");
-        reserveLink.setAttribute("href", "facebook.com");
-        reserveLink.appendChild(reserveImg);
-        reserveImg.classList.add("reserve-img");
-
-        const reserveContainer = document.createElement("div");
-        reserveContainer.classList.add("reserve-container");
-        reserveImg.src = reservationLogo;
-        reserveContainer.appendChild(reserveLink);
-        navContainer.appendChild(reserveContainer);
-
-        const reserveText = document.createElement("div");
-        reserveText.textContent = "Reservation";
-        reserveText.classList.add("nav-text");
-        reserveContainer.appendChild(reserveText);
-
-        //menu
-        const menuLink = document.createElement("a");
-        menuLink.classList.add("nav-link");
-        menuLink.setAttribute("href", "fb.com");
-        const menuImg = document.createElement("img");
-        menuLink.appendChild(menuImg);
-
-        const menuContainer = document.createElement("div");
-        menuContainer.classList.add("menu-container");
-        menuImg.src = menuLogo;
-        menuImg.classList.add("menu-img");
-        menuContainer.appendChild(menuLink);
-        navContainer.appendChild(menuContainer);
-
-        const menuText = document.createElement("div");
-        menuText.textContent = "Menu";
-        menuText.classList.add("nav-text");
-        menuContainer.appendChild(menuText);
-
-        //contact us
-        const contactLink = document.createElement("a");
-        contactLink.classList.add("nav-link");
-        contactLink.setAttribute("href", "fb.com");
-        const contactImg = document.createElement("img");
-        contactLink.appendChild(contactImg);
-
-        const contactContainer = document.createElement("div");
-        contactContainer.classList.add("contact-container");
-        contactImg.classList.add("contact-img");
-        contactImg.src = contactLogo;
-        contactContainer.appendChild(contactLink);
-        navContainer.appendChild(contactContainer);
-
-        const contactText = document.createElement("div");
-        contactText.textContent = "Contact us";
-        contactText.classList.add("nav-text");
-        contactContainer.appendChild(contactText);
-    }
+    const parentContainer = document.querySelector(".main-content");
 
     function generateMainContainer(firstText = "Put history story here.", secondText = "Put paragraphs of history manifestation here.", knifeImage){
         const mainContainer = document.createElement("div");
@@ -162,8 +81,6 @@ const homeComponent = (() => {
     }
 
     function initialize(){
-        generateTitleContainer();
-        generateNavContainer(placeHolderImg, placeHolderImg, placeHolderImg);
         generateMainContainer(webText.restaurantHistory, webText.manifestation, knifeImage);
         generateReviewsContainer();
         generateFootnote();

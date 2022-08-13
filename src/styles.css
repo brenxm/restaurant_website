@@ -72,29 +72,37 @@ body{
     height: 100px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.nav-container > * {
-    flex: 1;
+.nav-single-container {
+    padding: 5px;
+    cursor: pointer;    
 }
 
-.menu-img, .reserve-img, .contact-img {
+.nav-icons {
     margin: auto;
     display: block;
     height:70px;
+    pointer-events: none;
 }
 
 .nav-text {
     text-align: center;
     font-weight: 600;
     font-size: 20px;
+    pointer-events: none;
 }
 
 .nav-link {
     margin: auto;           
     display: block;
     width: 70px;
+}
+/* Main Content*/
+.main-content {
+    width: 750px;
+    margin: auto;
 }
 
 /* REVIEW Container */
