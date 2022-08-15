@@ -1,5 +1,6 @@
 import { appComponent } from "./app";
 import { homeComponent } from "./homepage";
+import { displayMenuPage } from "./menupage";
 import "./styles.css";
 
 let currentPage = null;
@@ -8,31 +9,31 @@ let currentPage = null;
 appComponent();
 
 //default page on start up
-
-
+homeComponent.initialize();
 
 function switchPages(input) {
-    if (currentPage === input) return;
+    const inputValue = parseInt(input.target.getAttribute("id"));
+    
+    if (currentPage === inputValue) return;
 
     clearMainContent();
 
-    switch (parseInt(input.target.getAttribute("id"))) {
+    switch (inputValue) {
         //home
         case 0:
             homeComponent.initialize();
             currentPage = 0;
             break;
-
         //reservation
         case 1:
             currentPage = 1;
             break;
         //menu
-
         case 2:
-        //contact us
+            displayMenuPage();
             currentPage = 2;
             break;
+        //contact us
         case 3:
             currentPage = 3;
             break;
@@ -46,7 +47,6 @@ function switchPages(input) {
         }
     }
 }
-
 
 const buttons = document.querySelectorAll(".nav-single-container");
 

@@ -177,3 +177,72 @@ blockquote p::after {
     color: rgb(102, 102, 102);
     font-size: 13px;
 }
+
+/* MENU */
+.menu-container {
+    padding: 0 40px;
+    overflow: auto;
+    height: calc(100vh - 399px);
+}
+.menu-sub-containers {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.sub-menu-title-containers {
+    text-align: center;
+    font-size: 30px;
+}
+
+.menu-number {
+    margin: 0;
+    padding: 0 5px;
+    color:rgb(136, 136, 136)
+}
+
+.menu-number::after {
+    content: ".";
+}
+
+.menu-item-name {
+    font-size: 20px;
+}
+
+.menu_top-section {
+    display: flex;
+}
+
+.menu_bottom-section {
+    display: flex;
+    border-bottom: dotted 0.5px rgb(160, 160, 160);
+}
+
+.menu_item-price {
+    
+}
+.menu_item-price::before {
+    content: "$";
+}
+
+.menu_bottom-section {
+    display: flex;
+    justify-content: space-between;
+}
+.menu_item-description {
+    font-style: italic;
+    color: rgb(185, 185, 185);
+    letter-spacing: 0.5px;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(250,250,250, 0.1);
+}
+

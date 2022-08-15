@@ -3,9 +3,9 @@ import knifeImage from "./kitchenknife.png";
 import webText from "./webtext.json";
 
 const homeComponent = (() => {
-    const parentContainer = document.querySelector(".main-content");
-
     function generateMainContainer(firstText = "Put history story here.", secondText = "Put paragraphs of history manifestation here.", knifeImage){
+        const mainContent = document.querySelector(".main-content");
+
         const mainContainer = document.createElement("div");
         mainContainer.classList.add("main-container");
 
@@ -24,16 +24,18 @@ const homeComponent = (() => {
         manifestContainer.classList.add("manifest-container");
         manifestContainer.textContent = secondText;
 
-        parentContainer.appendChild(mainContainer);
+        mainContent.appendChild(mainContainer);
         mainContainer.appendChild(historyContainer);
         mainContainer.appendChild(knifeContainer);
         mainContainer.appendChild(manifestContainer);
     }
 
     function generateReviewsContainer(){
+        const mainContent = document.querySelector(".main-content");
+
         const reviewsContainer = document.createElement("div");
         reviewsContainer.classList.add("reviews-container");
-        parentContainer.appendChild(reviewsContainer);
+        mainContent.appendChild(reviewsContainer);
 
         //for each reviews in JSON file, we add it to our review container
         webText.reviews.forEach(review => {
@@ -65,9 +67,11 @@ const homeComponent = (() => {
     }
 
     function generateFootnote(){
+        const mainContent = document.querySelector(".main-content");
+
         const footContainer = document.createElement("div");
         footContainer.classList.add("foot-container");
-        parentContainer.appendChild(footContainer);
+        mainContent.appendChild(footContainer);
 
         //for each notes in webtext.footernotes
             //create one p element for each single value in footerNotes array,

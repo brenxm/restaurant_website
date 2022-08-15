@@ -1,6 +1,114 @@
 {
-    "Appetizer": [],
-    "Steaks": [],
-    "Wine": [],
-    "Dessert": []
+    "appetizer": [
+        {   "name": "Red Dragon Sashimi", 
+            "description": "made in the sizzling cold of alaska", 
+            "price": "70.0"
+        },
+        {
+            "name": "Bacon Burn Bites",
+            "description": "Cooked bacon to crisp",
+            "price": "140.0"
+        },
+        {
+            "name": "Crab and Corn Hell Soup",
+            "description": "Yes, they can be cooked together nad it tastes great",
+            "price": "440.0"
+        },
+        {
+            "name": "Mushroom ala Soupe",
+            "description": "Fresh mushroom forage from the backyard",
+            "price": "40.0"
+        }
+    ],
+    "steaks": [
+        {
+            "name": "Wagyu Beef",
+        "description": "Meat of the Gods. 8 oz",
+        "price": "240.0"
+        },
+        {
+            "name": "Tenderloin Steak aka Filet Mignon",
+            "description": "Non voluptate nulla et in ex reprehenderit officia dolore ex occaecat amet. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Strip Steak",
+            "description": "Hanger Steak. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Porterhouse / T-Bone Steak",
+            "description": "Proident officia proident non adipisicing laboris velit. 24 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Flank Steak",
+            "description": "Dolore occaecat officia nulla aute. 100 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Skirt Steak",
+            "description": "Laborum non veniam anim aliquip consectetur commodo ut deserunt. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        }
+    ],
+    "wine": [
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        }
+    ],
+    "dessert": [
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        },
+        {
+            "name": "Short Rib",
+            "description": "Aute ea excepteur do Lorem irure nostrud aliqua voluptate cupidatat. 12 oz",
+            "price": "240.0"
+        }
+    ]
 }
