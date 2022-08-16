@@ -1,3 +1,4 @@
+import restaurantImg from "./restaurant.png"
 //create parentContainer,
 
 //create two sections left and right
@@ -52,6 +53,25 @@ function leftSectionComponent(){
     const leftSectionContainer = document.querySelector(".reservation_left-section");
     leftSectionContainer.appendChild(buttonContainer);
 
+    const disclaimerContainer = document.createElement("div");
+    disclaimerContainer.classList.add("reservation_disclaimer-container");
+    leftSectionContainer.appendChild(disclaimerContainer);
+
+    addDisclaimer("Culpa proident consectetur officia officia minim nostrud eu.");
+    addDisclaimer("Qui et ad voluptate ex qui occaecat aute veniam laboris dolor reprehenderit.");
+    addDisclaimer("Consequat duis ad duis minim labore nulla ut ex.");
+    addDisclaimer("Laborum anim est sunt nostrud esse deserunt cupidatat voluptate duis fugiat nisi consectetur culpa.");
+
+
+    function addDisclaimer(str){
+        const text = document.createElement("p");
+        text.classList.add("reservation_disclaimer-text");
+        text.textContent = str;
+
+        const disclaimerContainer = document.querySelector(".reservation_disclaimer-container");
+        disclaimerContainer.append(text);
+    }
+
 
     function generateInputContainer(title, titleClassName, inputType, inputClassName ){
         const container = document.createElement("div");
@@ -72,10 +92,20 @@ function leftSectionComponent(){
     }
 }
 
+function rightSectionComponent(){
+    const rightSectionContainer = document.querySelector(".reservation_right-section");
+    const img = document.createElement("img");
+    img.classList.add("reservation_img");
+    img.src = restaurantImg;
+
+    rightSectionContainer.appendChild(img);
+}
+
 
 function displayReservationPage(){
     generateReservationContainer();
     leftSectionComponent();
+    rightSectionComponent();
 }
 
 export { displayReservationPage };
