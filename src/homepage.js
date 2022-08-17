@@ -40,6 +40,7 @@ const homeComponent = (() => {
         //for each reviews in JSON file, we add it to our review container
         webText.reviews.forEach(review => {
             const name = document.createElement("h3");
+            name.classList.add("review-name");
             name.textContent = review.name;
 
             const blockqoute = document.createElement("blockquote");

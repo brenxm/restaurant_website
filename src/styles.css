@@ -72,11 +72,13 @@ body {
     content: "Restaurant History: ";
     font-size: 25px;
     color: rgb(228, 228, 228);
+    font-family: "subTitle";
 }
 
 .manifest-container::before {
     content: "Service Commitment: ";
     font-size: 25px;
+    font-family: "subTitle";
     color: rgb(228, 228, 228);
 }
 
@@ -104,7 +106,7 @@ body {
 #nav-button--unselected {
     padding: 5px;
     cursor: pointer;
-    filter: opacity(30%);
+    filter: opacity(50%);
     transition: 0.5s;
     transform: scale(0.7);
 }
@@ -119,8 +121,9 @@ body {
 .nav-text {
     text-align: center;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 15px;
     pointer-events: none;
+    font-family: "subTitle";
 }
 
 .nav-link {
@@ -154,6 +157,11 @@ body {
     flex-direction: column;
     gap: 5px;
 }
+
+.review-name {
+    letter-spacing: 1.4px;
+}
+
 
 .single-review-container>* {
     margin: 0;
@@ -226,6 +234,7 @@ blockquote p::after {
 .sub-menu-title-containers {
     text-align: center;
     font-size: 30px;
+    font-family: "subTitle";
 }
 
 .menu-number {
