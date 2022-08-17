@@ -307,3 +307,35 @@ blockquote p::after {
     font-style: italic;
     text-align: center;
 }
+
+/* Contact Us*/
+.contactus-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contactus-container * {
+    margin: auto;
+    text-align: center;
+}
+
+.contactus_single-container {
+    border-bottom: 1px dotted gray;
+    width: 500px;
+    padding-bottom: 15px;
+}
+
+.contactus_title {
+    font-size: 25px;
+}
+
+.contactus_location {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.contactus_subscribe-button {
+    color: black;
+    background: salmon;
+}

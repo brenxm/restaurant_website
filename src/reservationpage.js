@@ -1,19 +1,4 @@
 import restaurantImg from "./restaurant.png"
-//create parentContainer,
-
-//create two sections left and right
-
-//left section 
-    //the form
-        //name
-        //how many guest
-        //time slot
-        //phonenumber
-
-        //submit button
-
-//right section
-    //photo
 
 function generateReservationContainer(){
     const reservationContainer = document.createElement("div");

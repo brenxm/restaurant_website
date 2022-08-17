@@ -2,6 +2,7 @@ import { appComponent } from "./app";
 import { homeComponent } from "./homepage";
 import { displayMenuPage } from "./menupage";
 import { displayReservationPage } from "./reservationpage";
+import { displayContactUsPage } from "./contactuspage";
 import "./styles.css";
 
 let currentPage = null;
@@ -37,6 +38,7 @@ function switchPages(input) {
             break;
         //contact us
         case 3:
+            displayContactUsPage();
             currentPage = 3;
             break;
     }
