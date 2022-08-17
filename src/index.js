@@ -7,18 +7,16 @@ import "./styles.css";
 
 let currentPage = null;
 
-//initilize main structure
-appComponent();
-
-//default page on start up
-homeComponent.initialize();
+webStartUp();
 
 function switchPages(input) {
-    const inputValue = parseInt(input.target.getAttribute("id"));
+    const inputValue = parseInt(input.target.getAttribute("data-id"));
     
     if (currentPage === inputValue) return;
 
     clearMainContent();
+    navIconUpdater(inputValue);
+    input.target.setAttribute("id", "nav-button--selected");
 
     switch (inputValue) {
         //home
@@ -45,15 +43,32 @@ function switchPages(input) {
 
     function clearMainContent(){
         const mainContent = document.querySelector(".main-content");
-        console.log("called");
         while(mainContent.firstChild){
             mainContent.removeChild(mainContent.firstChild);
         }
     }
 }
 
-const buttons = document.querySelectorAll(".nav-single-container");
+function navIconUpdater(){
+  const buttons = document.querySelectorAll(".nav-single-container");
+  buttons.forEach(button => {
+    button.setAttribute("id", "nav-button--unselected");
+  })
+}
 
-buttons.forEach(button => button.addEventListener("click", switchPages));
+function webStartUp(){
+    appComponent();
+    homeComponent.initialize();
+    const buttons = document.querySelectorAll(".nav-single-container");
+    buttons.forEach(button => button.addEventListener("click", switchPages));
+
+    buttons.forEach(button => {
+        if(button.getAttribute("data-id") == 0){
+            button.setAttribute("id", "nav-button--selected");
+        }
+    })
+}
+
+
 
 

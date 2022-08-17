@@ -1,4 +1,7 @@
-import imgPlaceHolder from "./placeholder.png";
+import homeImg from "./home.png";
+import reservationImg from "./reservation.png";
+import menuImg from "./menu.png";
+import contactusImg from "./contactus.png";
 
 function appComponent(){
     const contentContainer = document.querySelector("#content");
@@ -26,10 +29,10 @@ function appComponent(){
         navContainer.classList.add("nav-container");
         contentContainer.appendChild(navContainer);
 
-        createTabButton("Home", imgPlaceHolder, "0" );
-        createTabButton("Reservation", imgPlaceHolder, "1");
-        createTabButton("Menu", imgPlaceHolder, "2");
-        createTabButton("Contact Us", imgPlaceHolder, "3");
+        createTabButton("Home", homeImg, "0" );
+        createTabButton("Reservation", reservationImg, "1");
+        createTabButton("Menu", menuImg, "2");
+        createTabButton("Contact Us", contactusImg, "3");
     }
 
     function generateMainContainer(){
@@ -38,7 +41,7 @@ function appComponent(){
         contentContainer.appendChild(mainContainer);
     }
 
-    function createTabButton(text, iconImage, idAttribute) {
+    function createTabButton(text, iconImage, dataAttribute) {
         const icon = document.createElement("img");
         icon.src = iconImage;
         icon.classList.add("nav-icons");
@@ -49,7 +52,8 @@ function appComponent(){
 
         const singleContainer = document.createElement("div");
         singleContainer.classList.add("nav-single-container");
-        singleContainer.setAttribute("id", idAttribute);
+        singleContainer.setAttribute("data-id", dataAttribute);
+        singleContainer.setAttribute("id", "nav-button--unselected");
         singleContainer.appendChild(icon);
         singleContainer.appendChild(title);
 

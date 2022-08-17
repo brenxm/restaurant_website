@@ -1,9 +1,21 @@
+@font-face {
+    font-family: "subTitle";
+    src: url("./aboreto.ttf") format("woff");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "mainTitle";
+    src: url("./inspiration.ttf") format("woff");
+    font-style: normal;
+}
+
 * {
     color: white;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: black;
     margin-top: 40px;
 }
@@ -15,15 +27,18 @@ body{
 }
 
 .main-title {
-    font-size: 70px;
+    font-family: "mainTitle";
     text-align: center;
+    font-size: 90px;
     margin: 0;
 }
 
 .sub-title {
+    font-family: "subTitle";
     text-align: center;
     margin: 0;
-    font-style: italic;
+    font-size: 20px;
+    letter-spacing: 2px;
     color: rgb(208, 208, 208);
 }
 
@@ -37,11 +52,12 @@ body{
     margin: auto;
 }
 
-.main-container > * {
+.main-container>* {
     flex: 1;
 }
 
-.history-container, .manifest-container {
+.history-container,
+.manifest-container {
     color: rgb(187, 187, 187);
     font-style: italic;
 }
@@ -64,11 +80,9 @@ body{
     color: rgb(228, 228, 228);
 }
 
-
-
 /* NAV Container*/
 .nav-container {
-    width: 750px;           
+    width: 750px;
     height: 100px;
     margin: auto;
     display: flex;
@@ -77,13 +91,28 @@ body{
 
 .nav-single-container {
     padding: 5px;
-    cursor: pointer;    
+    cursor: pointer;
+}
+
+#nav-button--selected {
+    padding: 5px;
+    cursor: pointer;
+    filter: opacity(100%);
+    transition: 0.5s;
+}
+
+#nav-button--unselected {
+    padding: 5px;
+    cursor: pointer;
+    filter: opacity(30%);
+    transition: 0.5s;
+    transform: scale(0.7);
 }
 
 .nav-icons {
     margin: auto;
     display: block;
-    height:70px;
+    height: 70px;
     pointer-events: none;
 }
 
@@ -95,10 +124,11 @@ body{
 }
 
 .nav-link {
-    margin: auto;           
+    margin: auto;
     display: block;
     width: 70px;
 }
+
 /* Main Content*/
 .main-content {
     width: 750px;
@@ -125,8 +155,8 @@ body{
     gap: 5px;
 }
 
-.single-review-container > * {
-     margin: 0;
+.single-review-container>* {
+    margin: 0;
 }
 
 .single-review-container p {
@@ -142,10 +172,10 @@ blockquote p {
     line-height: 17px;
     margin: 0;
     color: rgb(213, 213, 213);
-    
+
 }
 
-blockquote p:before{
+blockquote p:before {
     content: open-quote;
     font-weight: 600;
     font-size: 23px;
@@ -172,7 +202,7 @@ blockquote p::after {
     margin: auto;
 }
 
-.foot-container > * {
+.foot-container>* {
     text-align: center;
     margin: 0;
     color: rgb(102, 102, 102);
@@ -185,6 +215,7 @@ blockquote p::after {
     overflow: auto;
     height: calc(100vh - 399px);
 }
+
 .menu-sub-containers {
     display: flex;
     flex-direction: column;
@@ -200,7 +231,7 @@ blockquote p::after {
 .menu-number {
     margin: 0;
     padding: 0 5px;
-    color:rgb(136, 136, 136)
+    color: rgb(136, 136, 136)
 }
 
 .menu-number::after {
@@ -220,9 +251,8 @@ blockquote p::after {
     border-bottom: dotted 0.5px rgb(160, 160, 160);
 }
 
-.menu_item-price {
-    
-}
+.menu_item-price {}
+
 .menu_item-price::before {
     content: "$";
 }
@@ -231,6 +261,7 @@ blockquote p::after {
     display: flex;
     justify-content: space-between;
 }
+
 .menu_item-description {
     font-style: italic;
     color: rgb(185, 185, 185);
@@ -244,7 +275,7 @@ blockquote p::after {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: rgba(250,250,250, 0.1);
+    background: rgba(250, 250, 250, 0.1);
 }
 
 /* Reservation */
@@ -253,7 +284,7 @@ blockquote p::after {
     padding: 0 30px;
 }
 
-.reservation-container > * {
+.reservation-container>* {
     flex: 1;
 }
 
@@ -272,7 +303,11 @@ blockquote p::after {
     width: 100%;
 }
 
-.reservation_name-input, .reservation_guest-input, .reservation_time-input, .reservation_tel-input, .reservation_email-input {
+.reservation_name-input,
+.reservation_guest-input,
+.reservation_time-input,
+.reservation_tel-input,
+.reservation_email-input {
     background-color: gray;
     border: none;
     width: 90%;
@@ -295,7 +330,7 @@ blockquote p::after {
     padding: 8px 20px;
     letter-spacing: 2px;
     font-weight: 600;
-    border:none;
+    border: none;
     border-radius: 3px;
     background-color: rgb(231, 140, 115);
 }
