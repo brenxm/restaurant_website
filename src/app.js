@@ -3,67 +3,40 @@ import reservationImg from "./asset/reservation.png";
 import menuImg from "./asset/menu.png";
 import contactusImg from "./asset/contactus.png";
 
-function appComponent(){
-    const contentContainer = document.querySelector("#content");
-    //create title
-    function generateTitleContainer() {
-        const titleContainer = document.createElement("div");
-        titleContainer.classList.add("title-container");
-
-        const title = document.createElement("h1");
-        title.classList.add("main-title");
-        title.textContent = "Yves Ibyang";
-
-        const subTitle = document.createElement("h2");
-        subTitle.classList.add("sub-title");
-        subTitle.textContent = "Vegetarian Steak House"
-
-        contentContainer.appendChild(titleContainer);
-        titleContainer.appendChild(title);
-        titleContainer.appendChild(subTitle);
+export default function appComponent(){
+    return `
+        ${titleComponent("Yves Ibyang", "VEGETARIAN STEAK HOUSE")}
+        ${generateNavContainer()}
+        <div class = "main-content">
+        </div>
+    `
+    
+    function titleComponent(pageTitle, pageSubTitle) {
+        return `
+        <div class = "title-container">
+            <h1 class = "main-title">${pageTitle}</h1>
+            <h2 class = "sub-title">${pageSubTitle}</h2>
+        </div>
+       `
     }
 
-    //create nav bar
     function generateNavContainer() {
-        const navContainer = document.createElement("div");
-        navContainer.classList.add("nav-container");
-        contentContainer.appendChild(navContainer);
-
-        createTabButton("Home", homeImg, "0" );
-        createTabButton("Reservation", reservationImg, "1");
-        createTabButton("Menu", menuImg, "2");
-        createTabButton("Contact Us", contactusImg, "3");
-    }
-
-    function generateMainContainer(){
-        const mainContainer = document.createElement("div");
-        mainContainer.classList.add("main-content");
-        contentContainer.appendChild(mainContainer);
+        return `
+            <div class = "nav-container">
+                ${createTabButton("Home", homeImg, "0")}
+                ${createTabButton("Reservation", reservationImg, "1")}
+                ${createTabButton("Menu", menuImg, "2")}
+                ${createTabButton("Contact Us", contactusImg, "3")}
+            </div>
+        `
     }
 
     function createTabButton(text, iconImage, dataAttribute) {
-        const icon = document.createElement("img");
-        icon.src = iconImage;
-        icon.classList.add("nav-icons");
-
-        const title = document.createElement("div");
-        title.textContent = text;
-        title.classList.add("nav-text");
-
-        const singleContainer = document.createElement("div");
-        singleContainer.classList.add("nav-single-container");
-        singleContainer.setAttribute("data-id", dataAttribute);
-        singleContainer.setAttribute("id", "nav-button--unselected");
-        singleContainer.appendChild(icon);
-        singleContainer.appendChild(title);
-
-        const navContainer = document.querySelector(".nav-container");
-        navContainer.appendChild(singleContainer);
+        return `
+            <div class = "nav-single-container" id = "nav-button--unselected" data-id = ${dataAttribute}>
+                <img src = ${iconImage} class = "nav-icons" alt = "nav icons">
+                <div class = "nav-text">${text}</div>
+            </div>
+        `
     }
-
-    generateTitleContainer();
-    generateNavContainer();
-    generateMainContainer();
 }
-
-export { appComponent };

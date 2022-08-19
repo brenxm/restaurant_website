@@ -1,8 +1,8 @@
-import { appComponent } from "./app";
+import  appComponent  from "./app";
 import { homeComponent } from "./homepage";
 import { displayMenuPage } from "./menupage";
 import { displayReservationPage } from "./reservationpage";
-import { displayContactUsPage } from "./contactuspage";
+import  contactUsComponent  from "./contactuspage";
 import "./styles.css";
 
 let currentPage = null;
@@ -17,6 +17,7 @@ function switchPages(input) {
     clearMainContent();
     navIconUpdater(inputValue);
     input.target.setAttribute("id", "nav-button--selected");
+    const mainContent = document.querySelector(".main-content");
 
     switch (inputValue) {
         //home
@@ -36,7 +37,7 @@ function switchPages(input) {
             break;
         //contact us
         case 3:
-            displayContactUsPage();
+            mainContent.innerHTML = contactUsComponent();
             currentPage = 3;
             break;
     }
@@ -57,7 +58,7 @@ function navIconUpdater(){
 }
 
 function webStartUp(){
-    appComponent();
+    document.querySelector("#content").innerHTML = appComponent();
     homeComponent.initialize();
     const buttons = document.querySelectorAll(".nav-single-container");
     buttons.forEach(button => button.addEventListener("click", switchPages));
