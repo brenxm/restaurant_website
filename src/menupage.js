@@ -1,4 +1,4 @@
-import menu from "./menu.json";
+import menu from "./restaurant_content/menu.json";
 
 function generateMenuContainer(){
     const mainContent = document.querySelector(".main-content");

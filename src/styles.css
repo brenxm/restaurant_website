@@ -1,12 +1,12 @@
 @font-face {
     font-family: "subTitle";
-    src: url("./aboreto.ttf") format("woff");
+    src: url("./asset/aboreto.ttf") format("woff");
     font-style: normal;
 }
 
 @font-face {
     font-family: "mainTitle";
-    src: url("./inspiration.ttf") format("woff");
+    src: url("./asset/inspiration.ttf") format("woff");
     font-style: normal;
 }
 

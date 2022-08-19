@@ -1,4 +1,4 @@
-import restaurantImg from "./restaurant.png"
+import restaurantImg from "./asset/restaurant.png"
 
 function generateReservationContainer(){
     const reservationContainer = document.createElement("div");

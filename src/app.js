@@ -1,7 +1,7 @@
-import homeImg from "./home.png";
-import reservationImg from "./reservation.png";
-import menuImg from "./menu.png";
-import contactusImg from "./contactus.png";
+import homeImg from "./asset/home.png";
+import reservationImg from "./asset/reservation.png";
+import menuImg from "./asset/menu.png";
+import contactusImg from "./asset/contactus.png";
 
 function appComponent(){
     const contentContainer = document.querySelector("#content");

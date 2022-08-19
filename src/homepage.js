@@ -1,6 +1,6 @@
-import startIcon from "./staricon.svg";
-import knifeImage from "./kitchenknife.png";
-import webText from "./webtext.json";
+import startIcon from "./asset/staricon.svg";
+import knifeImage from "./asset/kitchenknife.png";
+import webText from "./restaurant_content/webtext.json";
 
 const homeComponent = (() => {
     function generateMainContainer(firstText = "Put history story here.", secondText = "Put paragraphs of history manifestation here.", knifeImage){
