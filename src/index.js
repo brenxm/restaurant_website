@@ -1,7 +1,7 @@
 import  appComponent  from "./app";
 import  homeComponent  from "./homepage";
 import { displayMenuPage } from "./menupage";
-import { displayReservationPage } from "./reservationpage";
+import reservationComponent  from "./reservationpage";
 import  contactUsComponent  from "./contactuspage";
 import "./styles.css";
 
@@ -28,7 +28,7 @@ function switchPages(input) {
         //reservation
         case 1:
             currentPage = 1;
-            displayReservationPage();
+            mainContent.innerHTML = reservationComponent();
             break;
         //menu
         case 2:

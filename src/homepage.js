@@ -2,7 +2,7 @@ import startIcon from "./asset/staricon.svg";
 import knifeImage from "./asset/kitchenknife.png";
 import webText from "./restaurant_content/webtext.json";
 
-export default function homeComponent(firstText){
+export default function homeComponent(){
     return `
         <div class = "main-container">
             <div class = "history-container">
