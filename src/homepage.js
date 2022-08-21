@@ -2,96 +2,68 @@ import startIcon from "./asset/staricon.svg";
 import knifeImage from "./asset/kitchenknife.png";
 import webText from "./restaurant_content/webtext.json";
 
-const homeComponent = (() => {
-    function generateMainContainer(firstText = "Put history story here.", secondText = "Put paragraphs of history manifestation here.", knifeImage){
-        const mainContent = document.querySelector(".main-content");
+export default function homeComponent(firstText){
+    return `
+        <div class = "main-container">
+            <div class = "history-container">
+                ${webText.restaurantHistory}
+            </div>
+            <div class = "knife-container">
+                <img class = "knife-img" src = ${knifeImage} alt = "knife background photo">
+            </div>
+            <div class = "manifest-container">
+                ${webText.manifestation}
+            </div>
+        </div>
+        ${reviewsComponent()}
+        ${footerComponent()}
+    `;
 
-        const mainContainer = document.createElement("div");
-        mainContainer.classList.add("main-container");
-
-        const historyContainer = document.createElement("div");
-        historyContainer.classList.add("history-container");
-        historyContainer.textContent = firstText;
-
-        const knifeContainer = document.createElement("div");
-        knifeContainer.classList.add("knife-container");
-        const knifeImg = document.createElement("img");
-        knifeImg.src = knifeImage;
-        knifeImg.classList.add("knife-img");
-        knifeContainer.appendChild(knifeImg);
-
-        const manifestContainer = document.createElement("div");
-        manifestContainer.classList.add("manifest-container");
-        manifestContainer.textContent = secondText;
-
-        mainContent.appendChild(mainContainer);
-        mainContainer.appendChild(historyContainer);
-        mainContainer.appendChild(knifeContainer);
-        mainContainer.appendChild(manifestContainer);
-    }
-
-    function generateReviewsContainer(){
-        const mainContent = document.querySelector(".main-content");
-
-        const reviewsContainer = document.createElement("div");
-        reviewsContainer.classList.add("reviews-container");
-        mainContent.appendChild(reviewsContainer);
-
-        //for each reviews in JSON file, we add it to our review container
+    function reviewsComponent(){
+        let tempText = "";
         webText.reviews.forEach(review => {
-            const name = document.createElement("h3");
-            name.classList.add("review-name");
-            name.textContent = review.name;
-
-            const blockqoute = document.createElement("blockquote");
-            const comment = document.createElement("p");
-            blockqoute.appendChild(comment);
-            comment.textContent = review.comment;
-            const scoreContainer = document.createElement("div");
-
-            scoreContainer.classList.add("score-container");
-            for(let i = 0; i < review.score; i++){
-                const icon = document.createElement("img");
-                icon.classList.add("star-icon");
-                icon.src = startIcon;
-                scoreContainer.appendChild(icon);
-            }
-
-            const singleReviewContainer = document.createElement("div");
-            singleReviewContainer.classList.add("single-review-container");
-            singleReviewContainer.appendChild(name);
-            singleReviewContainer.appendChild(blockqoute);
-            singleReviewContainer.appendChild(scoreContainer);
-
-            reviewsContainer.appendChild(singleReviewContainer);
+            tempText += `
+                    <div class = "single-review-container">
+                        <h3 class = "review-name">
+                            ${review.name}
+                        </h3>
+                        <blockquote>
+                            <p>${review.comment}</p>
+                        </blockquote>
+                        <div class = "score-container">
+                            ${generateStar(review.score)}
+                        </div>
+                    </div>
+                `
         })
+
+        function generateStar(score){
+            let tempStr = ""
+            for(let i = 0; i < score; i++){
+                    tempStr+= `
+                        <img src = ${startIcon} class="star-icon">
+                    `
+            };
+            return tempStr;
+        }
+        return `
+            <div class = "reviews-container">
+                ${tempText}
+            </div>
+        `;
     }
 
-    function generateFootnote(){
-        const mainContent = document.querySelector(".main-content");
+    function footerComponent(){
+        let tempStr = "";
+        webText.footerNotes.forEach(parag =>
+            {
+                tempStr += `<p>${parag}</p>`
+            })
 
-        const footContainer = document.createElement("div");
-        footContainer.classList.add("foot-container");
-        mainContent.appendChild(footContainer);
-
-        //for each notes in webtext.footernotes
-            //create one p element for each single value in footerNotes array,
-            //footContainer
-
-        webText.footerNotes.forEach(note => {
-            const text = document.createElement("p");
-            text.textContent = note;
-            footContainer.appendChild(text);
-        })
+        return `
+            <div class = "foot-container">
+                ${tempStr}
+            </div>
+        `
     }
-
-    function initialize(){
-        generateMainContainer(webText.restaurantHistory, webText.manifestation, knifeImage);
-        generateReviewsContainer();
-        generateFootnote();
-    }
-
-    return { initialize };
-})()
-
-export { homeComponent };
+}

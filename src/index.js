@@ -1,5 +1,5 @@
 import  appComponent  from "./app";
-import { homeComponent } from "./homepage";
+import  homeComponent  from "./homepage";
 import { displayMenuPage } from "./menupage";
 import { displayReservationPage } from "./reservationpage";
 import  contactUsComponent  from "./contactuspage";
@@ -22,7 +22,7 @@ function switchPages(input) {
     switch (inputValue) {
         //home
         case 0:
-            homeComponent.initialize();
+            mainContent.innerHTML = homeComponent();
             currentPage = 0;
             break;
         //reservation
@@ -59,7 +59,9 @@ function navIconUpdater(){
 
 function webStartUp(){
     document.querySelector("#content").innerHTML = appComponent();
-    homeComponent.initialize();
+    const mainContent = document.querySelector(".main-content");
+    mainContent.innerHTML = homeComponent();
+    
     const buttons = document.querySelectorAll(".nav-single-container");
     buttons.forEach(button => button.addEventListener("click", switchPages));
 
