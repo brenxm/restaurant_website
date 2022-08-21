@@ -1,74 +1,50 @@
 import menu from "./restaurant_content/menu.json";
 
-function generateMenuContainer(){
-    const mainContent = document.querySelector(".main-content");
+export default function menuComponent(){
+    return `
+        <div class = "menu-container">
+            ${generateMenuCollection(menu)}
+        </div>
+    `
 
-    const menuContainer = document.createElement("div");
-    menuContainer.classList.add("menu-container");
+    function generateMenuCollection(prop){
+        let tempStrMain = "";
+        let itemCounter = 1;
 
-    mainContent.append(menuContainer);
-}
+        for(const subMenu in prop){
+            console.log("called");
+            tempStrMain += `
+            <div class = "menu-sub-containers">
+                <div class = "sub-menu-title-containers">
+                    ${subMenu}
+                </div>
+                ${generateListOfItems(prop, subMenu)}
+            </div>
+        `
+        };
 
-function generateSubContainer(prop){
+        return tempStrMain;
 
-    let itemCounter = 1;
+        function generateListOfItems(prop, propName){
+            let tempStr = "";
+            prop[propName].forEach(item => {
+                tempStr += `
+                    <div class = "menu-item-container">
+                        <div class = "menu_top-section">
+                            <h3 class = "menu-number">${itemCounter}</h3>
+                            <div class = "menu-item-name">${item.name}</div>
+                        </div>
+                        <div class = "menu_bottom-section">
+                            <div class = "menu_item-description">${item.description}</div>
+                            <div class = "menu_item-price">${item.price}</div>
+                        </div>
+                    </div>
+                `
+            })
 
-    for(const subMenu in prop){
-        const container = document.createElement("div");
-        container.classList.add("menu-sub-containers");
-
-        const titleContainer = document.createElement("div");
-        titleContainer.classList.add("sub-menu-title-containers");
-        titleContainer.textContent = subMenu;
-        container.appendChild(titleContainer);
-
-        prop[subMenu].forEach(item => {
-            const itemContainer = document.createElement("div");
-            itemContainer.classList.add("menu-item-container");
-
-            const topSection = document.createElement("div");
-            topSection.classList.add("menu_top-section");
-
-            const menuNumber = document.createElement("h3");
-            menuNumber.classList.add("menu-number");
-            menuNumber.textContent = itemCounter;
             itemCounter++;
 
-            const itemName = document.createElement("div");
-            itemName.classList.add("menu-item-name");
-            itemName.textContent = item.name;
-
-            topSection.appendChild(menuNumber);
-            topSection.appendChild(itemName);
-
-            const bottomSection = document.createElement("div");
-            bottomSection.classList.add("menu_bottom-section");
-
-            const itemDescription = document.createElement("div");
-            itemDescription.classList.add("menu_item-description");
-            itemDescription.textContent = item.description;
-
-            const itemPrice = document.createElement("div");
-            itemPrice.classList.add("menu_item-price");
-            itemPrice.textContent = item.price;
-
-            bottomSection.appendChild(itemDescription);
-            bottomSection.appendChild(itemPrice);
-
-            itemContainer.appendChild(topSection);
-            itemContainer.appendChild(bottomSection);
-
-            container.appendChild(itemContainer);
-        })
-
-        const parentContainer = document.querySelector(".menu-container");
-        parentContainer.appendChild(container);
+            return tempStr;
+        }
     }
 }
-
-function displayMenuPage(){
-    generateMenuContainer();
-    generateSubContainer(menu);
-}
-
-export { displayMenuPage };
