@@ -41,7 +41,7 @@ export default function homeComponent(){
             let tempStr = ""
             for(let i = 0; i < score; i++){
                     tempStr+= `
-                        <img src = ${startIcon} class="star-icon">
+                        <img src = ${startIcon} class="star-icon" alt = "review stars">
                     `
             };
             return tempStr;

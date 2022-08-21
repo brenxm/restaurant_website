@@ -18,12 +18,14 @@
 body {
     background-color: black;
     margin-top: 40px;
+    min-height: 850px;
 }
 
 #content {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    min-height: 100vh;
 }
 
 .main-title {
@@ -49,7 +51,7 @@ body {
     padding: 0 10px;
     height: 500px;
     width: 750px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .main-container>* {
@@ -60,12 +62,14 @@ body {
 .manifest-container {
     color: rgb(187, 187, 187);
     font-style: italic;
+    height: 100%;
 }
 
 .knife-img {
-    width: 35%;
+    width: 80px;
+    height: 480px;
     display: block;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .history-container::before {
@@ -86,7 +90,7 @@ body {
 .nav-container {
     width: 750px;
     height: 100px;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
 }
@@ -115,6 +119,7 @@ body {
     margin: auto;
     display: block;
     height: 70px;
+    width: 70px;
     pointer-events: none;
 }
 
@@ -135,7 +140,8 @@ body {
 /* Main Content*/
 .main-content {
     width: 750px;
-    margin: auto;
+    height: 830px;
+    margin: 0 21.50px;
 }
 
 /* REVIEW Container */
@@ -145,6 +151,7 @@ body {
     display: flex;
     justify-content: space-around;
     margin-bottom: 50px;
+    height: 170px;
 }
 
 .single-review-container {
@@ -202,12 +209,15 @@ blockquote p::after {
 
 .star-icon {
     width: 20px;
+    height: 20px;
 }
 
 /* FOOTER */
 .foot-container {
     width: 750px;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    min-height: 90px;
 }
 
 .foot-container>* {
@@ -260,8 +270,6 @@ blockquote p::after {
     border-bottom: dotted 0.5px rgb(160, 160, 160);
 }
 
-.menu_item-price {}
-
 .menu_item-price::before {
     content: "$";
 }
@@ -291,10 +299,12 @@ blockquote p::after {
 .reservation-container {
     display: flex;
     padding: 0 30px;
+    min-height: 520px;;
 }
 
 .reservation-container>* {
     flex: 1;
+    min-height: 520px;
 }
 
 .reservation_left-section {
@@ -332,7 +342,7 @@ blockquote p::after {
 
 .reservation_submit-button {
     display: block;
-    margin: auto;
+    margin: 0 auto;
     color: black;
     height: auto;
     width: auto;
@@ -357,6 +367,7 @@ blockquote p::after {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    min-height: 375px;
 }
 
 .contactus-container * {
